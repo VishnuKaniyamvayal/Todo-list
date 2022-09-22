@@ -3,6 +3,7 @@ import './App.css';
 import { useState } from 'react';
 
 function App() {
+
   const [ToDos,setToDos] = useState([]);
   const [ToDo,setToDo] = useState('');
   return (
@@ -16,20 +17,24 @@ function App() {
       </div>
       <div className="input">
         <input value={ToDo} onChange={(e)=>setToDo(e.target.value)} type="text" placeholder="🖊️ Add item..." />
-        <i className="fas fa-plus"></i>
+        <i onClick={()=>{return(setToDos([...ToDos,ToDo]))}} className="fas fa-plus"></i>
       </div>
-      <div className="todos">
+      { ToDos.map((value)=>{
+        
+        return( <div className="todos">
         <div className="todo">
           <div className="left">
             <input type="checkbox" name="" id="" />
-            <p>React tutorial</p>
+            <p>{value}</p>
           </div>
           <div className="right">
             <i className="fas fa-times"></i>
           </div>
         </div>
-      </div>
+      </div>)})}
     </div>)
-}
+
+  }
+
 
 export default App;
