@@ -37,7 +37,12 @@ function App() {
             <p>{obj.text}</p>
           </div>
           <div className="right">
-            <i className="fas fa-times"></i>
+            <i onClick={(e)=>{
+              setToDos(ToDos.filter(()=>{
+                return null;
+              }
+              ))
+            }} className="fas fa-times"></i>
           </div>
         </div>
       </div>)})}
