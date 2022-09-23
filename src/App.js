@@ -37,11 +37,15 @@ function App() {
             <p>{obj.text}</p>
           </div>
           <div className="right">
-            <i onClick={(e)=>{
-              setToDos(ToDos.filter(()=>{
-                return null;
-              }
-              ))
+            <i onClick={()=>{
+              let temp=[];
+              ToDos.map((obj2)=>{
+                if(obj2!==obj)
+                {
+                   temp.push(obj2)
+                }
+                setToDos([...temp])
+              })
             }} className="fas fa-times"></i>
           </div>
         </div>
